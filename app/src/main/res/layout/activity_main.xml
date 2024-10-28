@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gra w kości. Autor: Hera Koesling"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:background="#D2691E"/>
 
     <Button
         android:layout_width="match_parent"
@@ -21,8 +22,10 @@
         android:text="RZUĆ KOŚĆMI"
         android:gravity="center"
         app:cornerRadius="0dp"/>
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Kostka1"/>
 </LinearLayout>
 
 
