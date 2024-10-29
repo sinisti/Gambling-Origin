@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button roll_dices = (Button) findViewById(R.id.roll_dices);
     }
     void rollDice(){
