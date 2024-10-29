@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button roll_dices;
     private Button reset;
     private TextView liczba_rzutow;
-
+    private int count  = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void rollDice() {
+        count++;
+        liczba_rzutow.setText("Liczba rzutów: " + count);
         random1 = (int) (Math.random() * 6 + 1);
         Kostka1.setText(Integer.toString(random1));
         random2 = (int) (Math.random() * 6 + 1);
