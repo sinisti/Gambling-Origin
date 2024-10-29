@@ -20,38 +20,49 @@ public class MainActivity extends AppCompatActivity {
     private int random4 = 0;
     private int random5 = 0;
     private Button roll_dices;
+    private Button reset;
+    private TextView liczba_rzutow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Initialize roll_dices button
+        liczba_rzutow = (TextView)findViewById(R.id.liczba_rzutow);
         roll_dices = findViewById(R.id.roll_dices);
-
+        Kostka1 = findViewById(R.id.Kostka1);
+        Kostka2 = findViewById(R.id.Kostka2);
+        Kostka3 = findViewById(R.id.Kostka3);
+        Kostka4 = findViewById(R.id.Kostka4);
+        Kostka5 = findViewById(R.id.Kostka5);
+        reset = findViewById(R.id.reset);
+        roll_dices = findViewById(R.id.roll_dices);
         roll_dices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rollDice();
             }
         });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ResetCount();
+            }
+        });
     }
 
     void rollDice() {
-        Kostka1 = findViewById(R.id.Kostka1);
         random1 = (int) (Math.random() * 6 + 1);
         Kostka1.setText(Integer.toString(random1));
-        Kostka2 = findViewById(R.id.Kostka2);
         random2 = (int) (Math.random() * 6 + 1);
         Kostka2.setText(Integer.toString(random2));
-        Kostka3 = findViewById(R.id.Kostka3);
         random3 = (int) (Math.random() * 6 + 1);
         Kostka3.setText(Integer.toString(random3));
-        Kostka4 = findViewById(R.id.Kostka4);
         random4 = (int) (Math.random() * 6 + 1);
         Kostka4.setText(Integer.toString(random4));
-        Kostka5 = findViewById(R.id.Kostka5);
         random5 = (int) (Math.random() * 6 + 1);
         Kostka5.setText(Integer.toString(random5));
+    }
+    void ResetCount(){
+        liczba_rzutow.setText("Liczba rzutów: 0");
     }
 }
