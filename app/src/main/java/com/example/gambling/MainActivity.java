@@ -1,11 +1,12 @@
 package com.example.gambling;
+import static java.lang.Math.random;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.TextView;
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
 public class MainActivity extends AppCompatActivity {
     private TextView Kostka1;
     private TextView Kostka2;
@@ -46,5 +47,4 @@ public class MainActivity extends AppCompatActivity {
                 Kostka5.setText(Integer.toString(random5));
             }
         });
-    }
-}
+}}
