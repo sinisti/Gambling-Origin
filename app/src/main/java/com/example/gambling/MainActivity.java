@@ -11,11 +11,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView Kostka3;
     private TextView Kostka4;
     private TextView Kostka5;
-    private int rkosc1 = 0;
-    private int rkosc2 = 0;
-    private int rkosc3 = 0;
-    private int rkosc4 = 0;
-    private int rkosc5 = 0;
+    private int rkosc1;
+    private int rkosc2;
+    private int rkosc3;
+    private int rkosc4;
+    private int rkosc5;
     private Button roll_dices;
     private Button reset;
     private TextView liczba_rzutow;
