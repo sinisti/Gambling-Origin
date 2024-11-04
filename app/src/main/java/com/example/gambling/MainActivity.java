@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView wynik_gry;
     private int iwynikt;
     private int iwynikp;
-    private final String[] wyniki = {"rkosc1","rkosc2","rkosc3","rkosc4","rkosc5"};
+    private final int[] wyniki = {rkosc1,rkosc2,rkosc3,rkosc4,rkosc5};
     private int count;
     private int amount1;
     private int amount2;
@@ -70,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         Kostka4.setText(Integer.toString(rkosc4));
         rkosc5 = (int) (Math.random() * 6 + 1);
         Kostka5.setText(Integer.toString(rkosc5));
+        wyniki[0] = rkosc1;
+        wyniki[1] = rkosc2;
+        wyniki[2] = rkosc3;
+        wyniki[3] = rkosc4;
+        wyniki[4] = rkosc5;
         iwynikt=rkosc1+rkosc2;
     }
     void ResetCount(){
@@ -81,13 +86,20 @@ public class MainActivity extends AppCompatActivity {
         Kostka3.setText("?");
         Kostka4.setText("?");
         Kostka5.setText("?");
-    ;}
+        ;}
     void UpdateScore() {
-        if (rkosc1 == rkosc2) {
-            amount1++;
-            iwynikp += iwynikt;
-            wynik_losowania.setText("Wynik losowania: " + iwynikt);
-            wynik_gry.setText("Wynik gry: " + iwynikp);
+        int[] czestosc = new int[7];
+        for (int wartosc : wyniki) {
+            czestosc[wartosc]++;
         }
+        iwynikt = 0;
+        for (int i = 1; i <= 6; i++) {
+            if (czestosc[i] > 1) {
+                iwynikt += i * czestosc[i];
+            }
+        }
+        iwynikp += iwynikt;
+        wynik_losowania.setText("Wynik losowania: " + iwynikt);
+        wynik_gry.setText("Wynik gry: " + iwynikp);
     }
 }
