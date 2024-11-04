@@ -1,12 +1,9 @@
 package com.example.gambling;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 public class MainActivity extends AppCompatActivity {
 
     private TextView Kostka1;
@@ -43,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 rollDice();
-                TEST();
+                //TEST();
             };
-
         });
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 ResetCount();
             }
         });
-
     }
-
-    public void rollDice() {
+    private void rollDice() {
         count++;
         liczba_rzutow.setText("Liczba rzutów: " + count);
         rkosc1 = (int) (Math.random() * 6 + 1);
@@ -69,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
         Kostka4.setText(Integer.toString(rkosc4));
         rkosc5 = (int) (Math.random() * 6 + 1);
         Kostka5.setText(Integer.toString(rkosc5));
-        wyniki[0]=rkosc1;
-        wyniki[1]=rkosc2;
-        wyniki[2]=rkosc3;
-        wyniki[3]=rkosc4;
-        wyniki[4]=rkosc5;
+        //wyniki[0]=rkosc1;
+        //wyniki[1]=rkosc2;
+        //wyniki[2]=rkosc3;
+        //wyniki[3]=rkosc4;
+        //wyniki[4]=rkosc5;
     }
     void ResetCount(){liczba_rzutow.setText("Liczba rzutów: 0");}
-    void TEST(){
-        if(wyniki[0]==wyniki[1]){
-            System.out.println("AAA");
-        }
-    }
+    //void TEST(){
+    //    if(wyniki[0]==wyniki[1]){
+    //        System.out.println("AAA");
+    //    }
+    //}
 }
