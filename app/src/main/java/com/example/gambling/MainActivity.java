@@ -5,7 +5,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
-
     private TextView Kostka1;
     private TextView Kostka2;
     private TextView Kostka3;
@@ -21,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView liczba_rzutow;
     private TextView wynik_losowania;
     private TextView wynik_gry;
+    private int iwynikt;
+    private int iwynikp;
     private final String[] wyniki = {"rkosc1","rkosc2","rkosc3","rkosc4","rkosc5"};
     private int count;
     private int amount1;
@@ -55,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private void rollDice() {
+        iwynikt=0;
         count++;
+        wynik_losowania.setText("Wynik losowania: 0");
         liczba_rzutow.setText("Liczba rzutów: " + count);
         rkosc1 = (int) (Math.random() * 6 + 1);
         Kostka1.setText(Integer.toString(rkosc1));
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         Kostka4.setText(Integer.toString(rkosc4));
         rkosc5 = (int) (Math.random() * 6 + 1);
         Kostka5.setText(Integer.toString(rkosc5));
+        iwynikt=rkosc1+rkosc2;
     }
     void ResetCount(){
         liczba_rzutow.setText("Liczba rzutów: 0");
@@ -79,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
         Kostka5.setText("?");
     ;}
     void UpdateScore() {
-        if (rkosc1 == rkosc2) { // Compare integer values
+        if (rkosc1 == rkosc2) {
             amount1++;
-            wynik_losowania.setText("Wynik losowania: " + amount1); // Update with correct text
+            iwynikp += iwynikt;
+            wynik_losowania.setText("Wynik losowania: " + iwynikt);
+            wynik_gry.setText("Wynik gry: " + iwynikp);
         }
     }
 }
