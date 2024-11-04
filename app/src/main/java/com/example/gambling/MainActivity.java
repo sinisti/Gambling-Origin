@@ -20,14 +20,18 @@ public class MainActivity extends AppCompatActivity {
     private Button reset;
     private TextView liczba_rzutow;
     private TextView wynik_losowania;
-    private int[5] wyniki;
+    private TextView wynik_gry;
+    private final String[] wyniki = {"rkosc1","rkosc2","rkosc3","rkosc4","rkosc5"};
     private int count;
+    private int amount1;
+    private int amount2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        liczba_rzutow = (TextView)findViewById(R.id.liczba_rzutow);
-        wynik_losowania = (TextView)findViewById(R.id.wynik_losowania);
+        liczba_rzutow = findViewById(R.id.liczba_rzutow);
+        wynik_losowania = findViewById(R.id.wynik_losowania);
+        wynik_gry = findViewById(R.id.wynik_gry);
         roll_dices = findViewById(R.id.roll_dices);
         Kostka1 = findViewById(R.id.Kostka1);
         Kostka2 = findViewById(R.id.Kostka2);
@@ -40,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 rollDice();
-                TEST();
-            };
+                UpdateScore();
+            }
         });
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,16 +67,21 @@ public class MainActivity extends AppCompatActivity {
         Kostka4.setText(Integer.toString(rkosc4));
         rkosc5 = (int) (Math.random() * 6 + 1);
         Kostka5.setText(Integer.toString(rkosc5));
-        wyniki[0]=rkosc1;
-        wyniki[1]=rkosc2;
-        wyniki[2]=rkosc3;
-        wyniki[3]=rkosc4;
-        wyniki[4]=rkosc5;
     }
-    void ResetCount(){liczba_rzutow.setText("Liczba rzutów: 0");}
-    void TEST(){
-        if(wyniki[0]==wyniki[1]){
-          System.out.println("AAA");
-       }
+    void ResetCount(){
+        liczba_rzutow.setText("Liczba rzutów: 0");
+        wynik_losowania.setText("Wynik losowania: 0");
+        wynik_gry.setText("Wynik gry: 0");
+        Kostka1.setText("?");
+        Kostka2.setText("?");
+        Kostka3.setText("?");
+        Kostka4.setText("?");
+        Kostka5.setText("?");
+    ;}
+    void UpdateScore() {
+        if (rkosc1 == rkosc2) { // Compare integer values
+            amount1++;
+            wynik_losowania.setText("Wynik losowania: " + amount1); // Update with correct text
+        }
     }
 }
