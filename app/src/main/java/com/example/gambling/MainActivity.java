@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView liczba_rzutow;
     private TextView wynik_losowania;
     private int[] wyniki;
-    private int count  = 0;
+    private int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
