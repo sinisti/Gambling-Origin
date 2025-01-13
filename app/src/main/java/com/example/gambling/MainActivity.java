@@ -2,7 +2,6 @@ package com.example.gambling;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private int count;
     private int amount1;
     private int amount2;
-    private int[] tabimgs;
-    private ImageView[] tabplcs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         Kostka3 = findViewById(R.id.Kostka3);
         Kostka4 = findViewById(R.id.Kostka4);
         Kostka5 = findViewById(R.id.Kostka5);
-        tabimgs = new int[]{R.drawable.dice1, R.drawable.dice2, R.drawable.dice3, R.drawable.dice4, R.drawable.dice5, R.drawable.dice6};
-        tabplcs = new ImageView[]{findViewById(R.id.imgdice1), findViewById(R.id.imgdice2), findViewById(R.id.imgdice3), findViewById(R.id.imgdice4), findViewById(R.id.imgdice5)};
         reset = findViewById(R.id.reset);
         roll_dices = findViewById(R.id.roll_dices);
         roll_dices.setOnClickListener(new View.OnClickListener() {
@@ -51,24 +46,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 rollDice();
                 UpdateScore();
-                int rand1 = (int) (Math.random() * 6 + 1);
-                int rand2 = (int) (Math.random() * 6 + 1);
-                int rand3 = (int) (Math.random() * 6 + 1);
-                int rand4 = (int) (Math.random() * 6 + 1);
-                int rand5 = (int) (Math.random() * 6 + 1);
-                int[] liczs = {rand1, rand2, rand3, rand4, rand5};
-                for(int i=0; i<tabplcs.length;i++){
-                    tabplcs[i].setImageResource(tabimgs[liczs[i]-1]);
-                };
             }
         });
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ResetCount();
-                for (int i=0; i<tabplcs.length; i++) {
-                    tabplcs[i].setImageResource(R.drawable.blank);
-                }
             }
         });
     }
@@ -119,5 +102,4 @@ public class MainActivity extends AppCompatActivity {
         wynik_losowania.setText("Wynik losowania: " + iwynikt);
         wynik_gry.setText("Wynik gry: " + iwynikp);
     }
-
 }
