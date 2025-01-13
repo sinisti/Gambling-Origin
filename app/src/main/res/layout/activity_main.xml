@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -91,7 +92,41 @@
             android:text="?"
             android:textSize="18sp" />
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imgdice1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/blank"/>
+        <ImageView
+            android:id="@+id/imgdice2"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/blank"/>
+        <ImageView
+            android:id="@+id/imgdice3"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/blank"/>
+        <ImageView
+            android:id="@+id/imgdice4"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/blank"/>
+        <ImageView
+            android:id="@+id/imgdice5"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:src="@drawable/blank"/>
+    </LinearLayout>
     <TextView
         android:id="@+id/wynik_losowania"
         android:layout_width="match_parent"
